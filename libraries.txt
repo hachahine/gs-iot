@@ -1,0 +1,6 @@
+OneWire
+DallasTemperature
+PubSubClient
+DHT sensor library
+thinger.io
+ThingerCore32

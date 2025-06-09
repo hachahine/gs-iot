@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "author": "hassan chahine",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 227.4, "left": -6.8, "attrs": {} },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 4.84, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": 249.9,
+      "left": 4.2,
+      "attrs": { "humidity": "54", "temperature": "14" }
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 56.3, "left": 201.4, "attrs": {} },
+    { "type": "board-ds18b20", "id": "temp1", "top": 162.07, "left": 148.08, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:5V", "bb1:tp.1", "red", [ "v9.6", "h19.35", "v28.5" ] ],
+    [ "esp:GND.1", "bb1:tn.1", "black", [ "h-9.45", "v67.2", "h27.2" ] ],
+    [ "bb1:1b.i", "bb1:tp.4", "red", [ "v0", "h-28.8", "v-115.2", "h67.2" ] ],
+    [ "bb1:4b.i", "bb1:tn.5", "black", [ "v9.6", "h-67.2", "v-115.2", "h86.4" ] ],
+    [ "bb1:2b.i", "esp:13", "cyan", [ "v0", "h-57.6", "v-211.2" ] ],
+    [ "temp1:GND", "bb1:tn.12", "black", [ "v0" ] ],
+    [ "temp1:VCC", "bb1:tp.14", "red", [ "v0" ] ],
+    [ "temp1:DQ", "esp:15", "purple", [ "v9.6", "h-28.8", "v-48" ] ],
+    [ "dht1:VCC", "bb1:1b.h", "", [ "$bb" ] ],
+    [ "dht1:SDA", "bb1:2b.h", "", [ "$bb" ] ],
+    [ "dht1:NC", "bb1:3b.h", "", [ "$bb" ] ],
+    [ "dht1:GND", "bb1:4b.h", "", [ "$bb" ] ],
+    [ "pot1:GND", "bb1:tn.19", "black", [ "v0" ] ],
+    [ "pot1:VCC", "bb1:tp.21", "red", [ "v0" ] ],
+    [ "pot1:SIG", "esp:34", "green", [ "v9.6", "h-125.2", "v-144", "h-115.2", "v76.8" ] ]
+  ],
+  "dependencies": {}
+}
